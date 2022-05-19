@@ -1,0 +1,24 @@
+<h1>My lists</h1>
+
+<ul id="lists">
+  <% @lists.each do |list| %>
+    <li>
+      <% if list.name %>
+        <i class="fa fa-check-square-o"></i>
+      <% else %>
+        <i class="fa fa-square-o"></i>
+      <% end %>
+      <%= link_to list.name, list_path(list.id) %>
+      <%= link_to "Delete",
+        list_path(list),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to new_list_path do %>
+  <i class="fa fa-plus"></i> Add a new list
+<% end %>
