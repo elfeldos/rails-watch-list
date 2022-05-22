@@ -1,0 +1,48 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.cards-container {
+  width: 90vw;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.card-desc {
+  text-decoration: none;
+  color: white;
+}
+
+.card-tags {
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  width: 80%;
+
+  span {
+    background: $blue;
+    font-size: .7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: small;
+    font-weight: lighter;
+  }
+}

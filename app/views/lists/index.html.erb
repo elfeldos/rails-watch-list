@@ -1,29 +1,31 @@
 <div class="banner">
-  <div class="container">
+  <div class="flexcontainer container">
     <h1>My movie-lists</h1>
     <p>The best movies curated by the one any only elfeldos</p>
-    <a class="btn btn-ghost" href="#">Add a list</a>
+    <div class="button-add">
+      <%= link_to new_list_path do %>
+        <i>Add new list</i>
+      <% end %>
+    </div>
   </div>
 </div>
-<ul id="lists">
-  <% @lists.each do |list| %>
-    <li>
-      <% if list.name %>
-        <i class="fa fa-check-square-o"></i>
-      <% else %>
-        <i class="fa fa-square-o"></i>
-      <% end %>
-      <%= link_to list.name, list_path(list.id) %>
-      <%= link_to "Delete",
-        list_path(list),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
-
-<hr>
-
-<%= link_to new_list_path do %>
-  <i class="fa fa-plus"></i> Add a new list
-<% end %>
+<div class="cards-container">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/random/240x320/?<%=list.name%>')">
+          <% if list.name %>
+            <i class="fa fa-check-square-o"></i>
+          <% else %>
+            <i class="fa fa-square-o"></i>
+          <% end %>
+          <%= link_to list.name, list_path(list.id), class: "card-desc" %>
+          <div class="card-tags">
+            <%= link_to list_path(list),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+              <p>delete</p>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+</div>
+<i class="fa-light fa-trash-can"></i>
